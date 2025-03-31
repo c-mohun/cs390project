@@ -5,9 +5,6 @@ import networkx as nx
 from sklearn.linear_model import LinearRegression
 from matplotlib import pyplot as plt
 
-# -------------------------------
-# 1. Load Atlas
-# -------------------------------
 atlas = datasets.fetch_atlas_schaefer_2018(n_rois=100)
 atlas_filename = atlas['maps']
 print("✅ Atlas loaded")
@@ -40,7 +37,7 @@ features = list(strengths.values())                  # 100 features (one per nod
 X = np.array(features).reshape(1, -1)
 print("✅ Graph features extracted")
 
-shaps_score = 5  # replace this with the real SHAPS score for this subject
+shaps_score = 5 
 model = LinearRegression()
 model.fit(X, [shaps_score])
 predicted = model.predict(X)[0]
